@@ -12,9 +12,10 @@ export default function Categories({ data }) {
         <option selected>Category</option>
         {data
           .filter((element, idx) => element.category)
-          .map((element) => {
+          .map((element, idx) => {
             return (
               <option
+                key={"option-" + idx}
                 onClick={() => Router.push(`/?category=${element.category}`)}
               >
                 {element.category}
