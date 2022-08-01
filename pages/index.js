@@ -24,7 +24,7 @@ export default function Home({ data, page }) {
 export async function getServerSideProps({
   query: { page = 1, category = "netflix" },
 }) {
-  const baseUrl = "http://localhost:4000/api/movies";
+  const baseUrl = "https://flixon.herokuapp.com/api/movies";
 
   const response = await axios.get(
     `${baseUrl}/?category=${category}&page=${page}`
