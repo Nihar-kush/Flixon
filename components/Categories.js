@@ -9,7 +9,9 @@ export default function Categories({ data }) {
         id="category"
         className="cursor-pointer rounded shadow"
       >
-        <option selected>Category</option>
+        <option selected disabled>
+          Category
+        </option>
         {data
           .filter((element, idx) => element.category)
           .map((element, idx) => {

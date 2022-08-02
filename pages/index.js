@@ -22,7 +22,7 @@ export default function Home({ data, page }) {
 }
 
 export async function getServerSideProps({
-  query: { page = 1, category = "netflix" },
+  query: { page = 1, category = "amazon-prime-video" },
 }) {
   const baseUrl = "https://flixon.herokuapp.com/api/movies";
 

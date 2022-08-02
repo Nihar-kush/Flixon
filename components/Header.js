@@ -14,9 +14,7 @@ export default function Header() {
   return (
     <header className="bg-[#222831] sm:px-24 text-white sm:h-20 flex flex-col justify-between sm:flex-row items-center">
       <div className="flex flex-grow justify-evenly max-w-2xl h-14 mt-2">
-        <a href="/">
-          <HeaderItem title="HOME" Icon={HomeIcon} />
-        </a>
+        <HeaderItem title="HOME" Icon={HomeIcon} />
         <HeaderItem title="TRENDING" Icon={LightningBoltIcon} />
         <HeaderItem title="VERIFIED" Icon={BadgeCheckIcon} />
         <HeaderItem title="COLLECTIONS" Icon={CollectionIcon} />
