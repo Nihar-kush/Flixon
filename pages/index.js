@@ -22,12 +22,14 @@ export default function Home({ data, page }) {
 }
 
 export async function getServerSideProps({
-  query: { page = 1, category = "amazon-prime-video" },
+  query: { page = 1, category = "" },
 }) {
-  const baseUrl = "https://flixon.herokuapp.com/api/movies";
+  const baseUrl = "https://flixon.up.railway.app/api/movies";
 
   const response = await axios.get(
-    `${baseUrl}/?category=${category}&page=${page}`
+    `${baseUrl}/?category=${category
+      .toLowerCase()
+      .replace(/ /g, "-")}&page=${page}`
   );
   return {
     props: {
