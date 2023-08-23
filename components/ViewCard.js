@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { DownloadIcon, PlayIcon } from "@heroicons/react/outline";
 
@@ -19,13 +19,15 @@ export default function ViewCard({ movie }) {
       />
       <div className="flex justify-center text-[#222831] ">
         <h1 className="truncate font-bold text-2xl">
-          {movie.title ? movie.title.slice(9) : "Title loading..."}
+          {movie.title ? movie.title : "Movie Title..."}
         </h1>
         <a href={movie.downloadLink}>
           <PlayIcon className="h-10 w-10 transition transform duration-100 hover:scale-125 hover:animate-pulse bg-[#F05454] rounded-full text-white cursor-pointer" />
-          {/* <iframe src={movie.downloadLink} /> */}
         </a>
       </div>
+      {/* {
+        <iframe src={movie.downloadLink} />
+      } */}
     </div>
   );
 }
