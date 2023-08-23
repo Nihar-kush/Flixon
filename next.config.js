@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ["themoviezflix.co.com"],
+    domains: ["themoviesflix.com.de","i.postimg.cc","moviesflixer.lat","images.unsplash.com","themoviesflix.gr.com"],
   },
 };
 
