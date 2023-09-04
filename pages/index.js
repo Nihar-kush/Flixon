@@ -5,6 +5,7 @@ import View from "../components/View";
 import PageNav from "../components/PageNav";
 import Categories from "../components/Categories";
 import Script from "next/script";
+import { useState } from "react";
 
 export default function Home({ data, page }) {
   return (
@@ -25,8 +26,7 @@ export default function Home({ data, page }) {
 export async function getServerSideProps({
   query: { page = 1, category = "" },
 }) {
-  const baseUrl = "https://flixon-server.vercel.app/api/movies";
-
+  const baseUrl = process.env.BASE_URL;
   const response = await axios.get(
     `${baseUrl}/?category=${category
       .toLowerCase()

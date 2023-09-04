@@ -1,8 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
-import { DownloadIcon, PlayIcon } from "@heroicons/react/outline";
+import { PlayIcon } from "@heroicons/react/outline";
+import axios from "axios";
 
+ 
 export default function ViewCard({ movie }) {
+  const videoUrl = "http://localhost:4000/api/movies";
+
+  const fetchVideoLink = () => {
+    const url = `${videoUrl}/link?movieUrl=${movie.downloadLink}`;
+    axios.get(url)
+      .then((response) => {
+        const fetchedVideoLink = response.data;
+        window.open(fetchedVideoLink, '_blank');
+      })
+      .catch((error) => {
+        console.error('Error fetching video link:', error);
+      });
+  };
+  
   return (
     <div className="rounded-3xl flex flex-col gap-y-5 overflow-hidden shadow-[#f1d9d9] shadow-lg p-5 hover:scale-110 transition duration-500 ease-in-out">
       <Image
@@ -21,9 +37,10 @@ export default function ViewCard({ movie }) {
         <h1 className="truncate font-bold text-2xl">
           {movie.title ? movie.title : "Movie Title..."}
         </h1>
-        <a href={movie.downloadLink}>
-          <PlayIcon className="h-10 w-10 transition transform duration-100 hover:scale-125 hover:animate-pulse bg-[#F05454] rounded-full text-white cursor-pointer" />
-        </a>
+        <PlayIcon
+          onClick={fetchVideoLink}
+          className="h-10 w-10 transition transform duration-100 hover:scale-125 hover:animate-pulse bg-[#F05454] rounded-full text-white cursor-pointer"
+        />
       </div>
       {/* {
         <iframe src={movie.downloadLink} />
